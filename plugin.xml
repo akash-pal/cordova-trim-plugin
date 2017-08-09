@@ -51,4 +51,47 @@
 
     </platform>
 
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VideoTrim">
+                <param name="android-package" value="org.apache.cordova.trim.VideoTrim" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+
+            <activity android:label="ZenVerse" android:name="org.apache.cordova.trim.VideoTrimActivity" 
+                android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+                <intent-filter>
+                    <action android:name="org.apache.cordova.trim.VideoTrimActivity" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+
+            <activity android:name="com.afollestad.materialcamera.CaptureActivity"
+                        android:theme="@style/MaterialCamera.CaptureActivity" />
+            <activity android:name="com.afollestad.materialcamera.CaptureActivity2"
+                        android:theme="@style/MaterialCamera.CaptureActivity" />
+
+		</config-file>
+
+        <!-- add plugin class -->
+        <source-file src="src/android/VideoTrim.java" target-dir="src/org/apache/cordova/trim" />
+        <source-file src="src/android/VideoTrimActivity.java" target-dir="src/org/apache/cordova/trim" />
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <source-file src="src/android/layout/activity_trimmer.xml" target-dir="res/layout" />
+        <resource-file src="src/android/strings_trim.xml" target="res/values/strings_trim.xml" />
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+
+    </platform>
+
 </plugin>
