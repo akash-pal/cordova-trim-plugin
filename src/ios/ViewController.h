@@ -16,6 +16,7 @@
 @interface ViewController : UIViewController<videoTrimDelegate>
 
 @property (nonatomic, retain) NSString *data;
+@property (nonatomic, retain) NSNumber *timeLimit;
 @property (nonatomic, weak) id <videoTrimDelegate> delegate;
 
 @end

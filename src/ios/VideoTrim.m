@@ -43,6 +43,8 @@
     }
     
     NSString *inputFilePath = [options objectForKey:@"fileUri"];
+    NSNumber* duration = [options objectForKey:@"duration"];
+    
     
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName: @"Trim" bundle: nil];
     
@@ -50,6 +52,7 @@
     
     viewController.delegate = self;
     viewController.data = inputFilePath;
+    viewController.timeLimit = duration;
     
     MainViewController *mainVC = (MainViewController*)[[(CDVAppDelegate*)
                                                         [[UIApplication sharedApplication]delegate] window] rootViewController];

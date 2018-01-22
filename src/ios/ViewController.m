@@ -49,6 +49,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear: animated];
     NSString *inputFilePath = _data;
+    NSNumber *duration = _timeLimit;
+    if (duration) {
+        duration = [duration doubleValue] == 0 ? nil : duration;
+    }
     NSURL *url = [self getURLFromFilePath:inputFilePath];
     
     self.asset = [AVAsset assetWithURL:url];
@@ -80,7 +84,7 @@
     [self.trimmerView setAsset:self.asset];
     [self.trimmerView setShowsRulerView:YES];
     [self.trimmerView setRulerLabelInterval:10];
-    [self.trimmerView setMaxLength:20];
+    [self.trimmerView setMaxLength:[duration doubleValue]];
     [self.trimmerView setTrackerColor:[UIColor cyanColor]];
     [self.trimmerView setDelegate:self];
     
@@ -248,7 +252,7 @@
                         
                         NSURL *movieUrl = [NSURL fileURLWithPath:self.tempVideoPath];
                         [self.delegate selectedVideoPath:movieUrl StatusCode:@"success"];
-                        UISaveVideoAtPathToSavedPhotosAlbum([movieUrl relativePath], self,@selector(video:didFinishSavingWithError:contextInfo:), nil);
+//                        UISaveVideoAtPathToSavedPhotosAlbum([movieUrl relativePath], self,@selector(video:didFinishSavingWithError:contextInfo:), nil);
                         [self dismissViewControllerAnimated:YES completion:nil];
                     });
                     
