@@ -69,12 +69,6 @@
                     <category android:name="android.intent.category.DEFAULT" />
                 </intent-filter>
             </activity>
-
-            <activity android:name="com.afollestad.materialcamera.CaptureActivity"
-                        android:theme="@style/MaterialCamera.CaptureActivity" />
-            <activity android:name="com.afollestad.materialcamera.CaptureActivity2"
-                        android:theme="@style/MaterialCamera.CaptureActivity" />
-
 		</config-file>
 
         <!-- add plugin class -->
