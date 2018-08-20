@@ -7,5 +7,5 @@ repositories{
     }
 }
 dependencies {
-    compile 'life.knowledge4:k4l-video-trimmer:1.1.3-SNAPSHOT'
+   compile 'life.knowledge4:k4l-video-trimmer:1.0'
 }
