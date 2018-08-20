@@ -8,8 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.afollestad.materialcamera.MaterialCamera;
-import com.zensar.zenaskapp.R;
+import your.package.name.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
